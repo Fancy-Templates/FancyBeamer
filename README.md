@@ -16,9 +16,10 @@ We encourage the format `FancyBeamer<UniversityAcronym>` for the fork names (e.g
     - [Creating a Symbolic Link](#creating-a-symbolic-link)
   - [Functionality of the Theme](#functionality-of-the-theme)
     - [Title Page](#title-page)
+      - [Setting the Logos](#setting-the-logos)
+    - [Changing Footer Transparency](#changing-footer-transparency)
     - [Content Overview](#content-overview)
     - [Section Frames](#section-frames)
-    - [Setting the Logos](#setting-the-logos)
     - [Slide Layout](#slide-layout)
       - [Old Macros for Slide Layouts](#old-macros-for-slide-layouts)
     - [Unique Slide-Numbering](#unique-slide-numbering)
@@ -79,6 +80,32 @@ If no picture is given (`\maketitle`), a default picture is used. To create a ti
 
 To repeat the title slide you can use the command `\againtitle` at any point. It creates a copy of the last title slide with the same picture and picture-offset.
 
+#### Setting the Logos
+
+The title slide provides space to display logos.
+The `\fancylogos` macro accepts a comma-separated list of paths to images which are then evenly spaced on the title slide:
+
+```latex
+\fancylogos{example-image-a,example-image-b,example-image-c}
+```
+
+You can use empty entries to alter the alignment. The following example aligns a single logo to the right:
+
+```latex
+\fancylogos{,example-image-a}
+```
+
+### Changing Footer Transparency
+
+The transparency of the footer can be adjusted using the command `\settitlefootertransparency{<transparency>}`. The transparency value should be between 0 (completely transparent) and 1 (completely opaque).
+For example (used before the `\maketitle`),
+   
+```latex 
+\settitlefootertransparency{0.3}
+```
+
+will set the transparency of the logo footer to 30%.
+
 ### Content Overview
 
 A slide that shows a clickable multi-column table of contents (including the sections and subsections of the document) can be generated using the command `\contentoverview`. The command supports an optional argument which reflects the number of columns to use. For example, `\contentoverview[2]` will make use of columns.
@@ -93,20 +120,6 @@ You can overwrite this behaviour by using one of the following options within th
 * `sectiontitleslides`: automatic title frames at the begin of each section
 * `sectionoverviews`: automatic section overviews at the begin of each section
 
-### Setting the Logos
-
-The title slide provides space to display logos.
-The `\fancylogos` macro accepts a comma-separated list of paths to images which are then evenly spaced on the title slide:
-
-```latex
-\fancylogos{example-image-a,example-image-b,example-image-c}
-```
-
-You can use empty entries to alter the alignment. The following example aligns a single logo to the right:
-
-```latex
-\fancylogos{,example-image-a}
-```
 
 ### Slide Layout
 
