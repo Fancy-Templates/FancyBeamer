@@ -99,7 +99,7 @@ You can use empty entries to alter the alignment. The following example aligns a
 
 The transparency of the footer can be adjusted using the command `\settitlefootertransparency{<transparency>}`. The transparency value should be between 0 (completely transparent) and 1 (completely opaque).
 For example (used before the `\maketitle`),
-   
+
 ```latex 
 \settitlefootertransparency{0.3}
 ```
