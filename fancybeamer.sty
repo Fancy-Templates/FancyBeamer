@@ -177,6 +177,7 @@
 }
 
 \setbeamertemplate{frametitle}{
+    \hypersetup{linkcolor = foreground}
     \vspace{20pt}%
     \vphantom{/}\setbox0=\hbox{\insertframetitle}%
     \ifdim\wd0<\textwidth
@@ -189,7 +190,7 @@
     \def\fancy@page{\insertframenumber}
 \fi
 \setbeamertemplate{footline}{
-    \hypersetup{linkcolor = white}
+    \hypersetup{linkcolor = foreground}
     \hbox{%
         \begin{beamercolorbox}[wd=0.93\textwidth,ht=3mm,dp=1.5mm,left]{myfooter}
             \hspace{0.03\textwidth}
