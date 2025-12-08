@@ -32,17 +32,17 @@ We encourage the format `FancyBeamer<UniversityAcronym>` for the fork names (e.g
       - [Automatic Dark Mode for Pictures](#automatic-dark-mode-for-pictures)
     - [Other Functionalities](#other-functionalities)
 
-
 ## How to Use
 
 If you are interested in a quickstart, have a look at our [demo-slides.tex](demo-slides/demo-slides.tex) or [empty-slides.tex](empty-slides/empty-slides.tex) files.
 
 ### Creating a Presentation
-First, you need to create a new beamer presentation. For that, add 
 
-``tex
+First, you need to create a new beamer presentation. For that, add
+
+```tex
 \documentclass[aspectratio=169]{beamer}
-``
+```
 
 to your `.tex`-file. We recommend a font size of around 8pt for online presentations so you can use  `\documentclass[aspectratio=169,8pt]{beamer}`.
 
