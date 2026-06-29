@@ -385,4 +385,20 @@
 %\contentoverview % create a content overview with one column
 \contentoverview[3] % create a content overview with three columns
 
+%The pic command adds some extra space below the picture #26
+
+\begin{frame}{\insertsubsection}
+    \begin{fancycolumns}[animation=none]
+        \begin{example}{Example Domains}
+            \begin{itemize}
+                \item \emph{embedded systems} where software has to interface with hardware systems
+                \item \emph{critical systems} with extensive safety and security analysis of specification and design
+                \item \emph{large software systems} that are typically developed by several companies
+            \end{itemize}
+        \end{example}
+    \nextcolumn
+        \centering
+        \includegraphics[width=.9\linewidth]{example-image}
+    \end{fancycolumns}
+\end{frame}
 \end{document}
