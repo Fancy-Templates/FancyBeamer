@@ -14,7 +14,6 @@
 \usepackage{multicol} % for auto multi-column in content overview
 \usepackage{catchfile} % for automatic link on pictures
 \usepackage{array} % for better column alignment in tables
-
 % ---------------------------------------------
 % general settings
 % ---------------------------------------------
@@ -87,7 +86,6 @@
 \setbeamercolor{logobox}{bg=white}
 \setbeamercolor{section in toc}{fg=foreground}
 \setbeamercolor{subsection in toc}{fg=foreground}
-
 \setbeamercolor{myfooter}{fg=white,bg=accent}
 \setbeamercolor{mypagenumber}{fg=white,bg=accenttwo}
 \setbeamercolor{titlebox}{fg=white,bg=accenttwo}
@@ -183,7 +181,8 @@
     \ifdim\wd0<\textwidth
     \insertframetitle
     \else\let\hfill\space\resizebox\linewidth!{\insertframetitle}\fi
-}
+    }
+
 \ifuniqueslidenumbersuffix
     \def\fancy@page{\insertframenumber\ifnum\insertframestartpage=\insertframeendpage\else\rlap{\color{fg!50!bg}.\insertslidenumber}\fi}
 \else
@@ -426,7 +425,7 @@
   @defaults/.style           = {%
     c, % center align
     no height,
-    columns = 2, animation=none, % one column, no animation
+    columns = 2, animation=none, % two columns, no animation
     widths = {}, % use default widths (evenly distribute)
     width = \linewidth, %
     % this number was merely chosen to look visually pleasing
@@ -590,10 +589,15 @@
 \newenvironment{fancycolumns}[1][]{\begingroup
 \pgfqkeys{/fancy columns}{@defaults, #1}%
 \edef\fancy@previous@fancy@cols{\thefancy@cols@current}% store the current column counter
+% Preserve outer column and overlay state so nested fancycolumns
+% do not reset the parent animation sequence
+\edef\fancy@previous@fancy@colsanim{\thefancy@cols@currentanim}%
 \ifdim\fancy@cols@height<0pt\begin{minipage}{\fancy@cols@target@width}\else\begin{minipage}[\fancy@cols@valign][\fancy@cols@height]{\fancy@cols@target@width}\fi%
 \begin{columns}[onlytextwidth,\fancy@cols@valign, \fancy@cols@extra]
     \fancy@cols@init
-}{\end{columns}\end{minipage}\setcounter{fancy@cols@current}{\fancy@previous@fancy@cols}\endgroup}
+% Restore the parent column and overlay counters after nested
+% fancycolumns has finished.
+}{\end{columns}\end{minipage}\setcounter{fancy@cols@current}{\fancy@previous@fancy@cols}\setcounter{fancy@cols@currentanim}{\fancy@previous@fancy@colsanim}\endgroup}
 
 % ---------------------------------------------
 % color boxes

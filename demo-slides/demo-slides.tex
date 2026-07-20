@@ -16,12 +16,7 @@
 
 % \AtEndPreamble{\setpaths{{pics/}{../pics/}}} % specify custom paths to your pictures
 
-\title[Short Title]{This is the Long Title} % short title is used for the slide footer but optional
-\subtitle[Short Subtitle]{This is the Long Subtitle} % subtitles are optional at all
-\author[Short Author]{Long Author} % short author title is used for the slide footer but optional
-\date{\today} % use a particular date here if needed
 
-\fancylogos{example-image-a,example-image-b,example-image-c} % define logos that are spread evenly across the bottom of the title slide
 % \fancylogos{example-image-a} % just one logo is possible as well, e.g., the logo of your university
 % \fancylogos{,example-image-a} % you can use empty entries for a more fine-tuned alignment
 
@@ -35,6 +30,7 @@
 
 \section{Slide Contents}
 
+
 \subsection{Lists and Numbered Lists}
 \begin{frame}{\insertsubsection}
 	\begin{fancycolumns}
@@ -43,7 +39,7 @@
 			\item Item on the first level
 			\item Another item on the first level
 			\begin{itemize}
-				\item Item on the second level
+				\item Item on the second level 
 				\item Another item on the second level
 			\begin{itemize}
 			\item Item on the third level
@@ -57,7 +53,7 @@
 		\item Item on the first level
 		\item Another item on the first level
 		\begin{enumerate}
-			\item Item on the second level
+			\item Item on the second level 
 			\item Another item on the second level
 				\begin{enumerate}
 					\item Item on the third level
@@ -385,34 +381,56 @@
 %\contentoverview % create a content overview with one column
 \contentoverview[3] % create a content overview with three columns
 
-%The pic command adds some extra space below the picture #26
-
-\begin{frame}{\insertsubsection}
-    \begin{tabular}{ %tabular environment is used to create a table with two columns
-		%
-		%m comes from the array package and is used here to center the content of the box vertically
-        @{} % no space on the left side of the table
-        m{.48\linewidth} %control the width of the box it takes 48% of the width of the slide 
-        @{\hspace{.04\linewidth}} %space between box and picture
-        m{.47\linewidth} %control the width of the picture it takes 47% of the width of the slide
-        @{}
-		%48+4+47=99% of the width of the slide
-    }
-	%you can add minipage so you can control the sizes of this box
-        \begin{example}{Example Domains}
-            \begin{itemize}
-                \item First example
-                \item Second example
-            \end{itemize}
-        \end{example}
-        &
-        \centering % this horizontally centers the image inside the right column.
-        \pic[
-			%you can edit the width and height of the picture to fit your needs
-            width=.9\linewidth,
-            height=0.75\textheight,
-            keepaspectratio % this option will keep the aspect ratio of the picture
-        ]{example-image}
-    \end{tabular}
+\begin{frame}{}
+    \begin{fancycolumns}[t,columns=6,animation=keep]
+        \begin{exampletight}{}
+            \begin{fancycolumns}[animation=none]
+                x
+            \nextcolumn
+                y
+            \end{fancycolumns}
+        \end{exampletight}
+    \nextcolumn
+        \begin{exampletight}{}
+            \begin{fancycolumns}[animation=none]
+                x
+            \nextcolumn
+                y
+            \end{fancycolumns}
+        \end{exampletight}
+    \nextcolumn
+        \begin{exampletight}{}
+            \begin{fancycolumns}[animation=none]
+                x
+            \nextcolumn
+                y
+            \end{fancycolumns}
+        \end{exampletight}
+    \nextcolumn
+        \begin{exampletight}{}
+            \begin{fancycolumns}[animation=none]
+                x
+            \nextcolumn
+                y
+            \end{fancycolumns}
+        \end{exampletight}
+    \nextcolumn
+        \begin{exampletight}{}
+            \begin{fancycolumns}[animation=none]
+                x
+            \nextcolumn
+                y
+            \end{fancycolumns}
+        \end{exampletight}
+    \nextcolumn
+        \begin{exampletight}{}
+            \begin{fancycolumns}[animation=none]
+                x
+            \nextcolumn
+                y
+            \end{fancycolumns}
+        \end{exampletight}
+    \end{fancycolumns}
 \end{frame}
+
 \end{document}
