@@ -589,10 +589,15 @@
 \newenvironment{fancycolumns}[1][]{\begingroup
 \pgfqkeys{/fancy columns}{@defaults, #1}%
 \edef\fancy@previous@fancy@cols{\thefancy@cols@current}% store the current column counter
+% Preserve outer column and overlay state so nested fancycolumns
+% do not reset the parent animation sequence
+\edef\fancy@previous@fancy@colsanim{\thefancy@cols@currentanim}%
 \ifdim\fancy@cols@height<0pt\begin{minipage}{\fancy@cols@target@width}\else\begin{minipage}[\fancy@cols@valign][\fancy@cols@height]{\fancy@cols@target@width}\fi%
 \begin{columns}[onlytextwidth,\fancy@cols@valign, \fancy@cols@extra]
     \fancy@cols@init
-}{\end{columns}\end{minipage}\setcounter{fancy@cols@current}{\fancy@previous@fancy@cols}\endgroup}
+% Restore the parent column and overlay counters after nested
+% fancycolumns has finished.
+}{\end{columns}\end{minipage}\setcounter{fancy@cols@current}{\fancy@previous@fancy@cols}\setcounter{fancy@cols@currentanim}{\fancy@previous@fancy@colsanim}\endgroup}
 
 % ---------------------------------------------
 % color boxes
