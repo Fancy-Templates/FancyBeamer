@@ -189,7 +189,9 @@
     \def\fancy@page{\insertframenumber}
 \fi
 \setbeamertemplate{footline}{
-    \hypersetup{linkcolor = white}
+    \begingroup
+    \usebeamercolor[fg]{myfooter}% %this to take the current color of footer we already have so we can use it here instade of hardcoded color
+    \hypersetup{linkcolor = .} % this use the footer color for the links in the footer
     \hbox{%
         \begin{beamercolorbox}[wd=0.93\textwidth,ht=3mm,dp=1.5mm,left]{myfooter}
             \hspace{0.03\textwidth}
@@ -205,6 +207,7 @@
             \fancy@page
         \end{beamercolorbox}%
     }%
+    \endgroup
 }
 
 % ---------------------------------------------
