@@ -739,3 +739,13 @@
 		\pic[#1,decodearray={1 .25 1 .25 1 .25}]{#2}}}%
 	}
 \fi
+% ---------------------------------------------
+% Warnings for figure and table environments
+% ---------------------------------------------
+\AtBeginEnvironment{figure}{%
+    \PackageWarning{fancybeamer}{%
+        Use of the figure environment detected.\MessageBreak
+        For consistent styling, consider placing the image\MessageBreak
+        inside exampletight, infotight, or another tight box%
+    }%
+}
