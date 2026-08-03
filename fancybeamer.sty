@@ -749,3 +749,10 @@
         inside exampletight, infotight, or another tight box%
     }%
 }
+\AtBeginEnvironment{table}{%
+    \PackageWarning{fancybeamer}{%
+        Use of the table environment detected.\MessageBreak
+        For consistent styling, consider placing the table\MessageBreak
+        inside exampletight, infotight, or another tight box%
+    }%
+}
