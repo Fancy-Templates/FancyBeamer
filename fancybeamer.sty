@@ -720,3 +720,30 @@
 		\pic[#1,decodearray={1 .25 1 .25 1 .25}]{#2}}}%
 	}
 \fi
+% ---------------------------------------------
+% theorem environments
+% ---------------------------------------------
+
+\makeatletter
+
+\setbeamertemplate{theorem begin}{%
+    \begin{tcolorbox}[
+        fancy@boxstyle={}
+        {%
+            \inserttheoremname
+            \inserttheoremnumber
+            \ifx\inserttheoremaddition\@empty
+            \else
+                \ (\inserttheoremaddition)%
+            \fi
+        }
+        {accenttwo}
+        {theorem}%
+    ]%
+}
+
+\setbeamertemplate{theorem end}{%
+    \end{tcolorbox}%
+}
+
+\makeatother
